@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="KLYPER - Descargador Universal de Videos para Windows. Descarga videos de YouTube, Facebook, Instagram, TikTok y más de 1000+ sitios web.">
+    <meta name="keywords" content="descargador de videos, youtube downloader, descargar videos, klyper, video downloader">
+    <meta name="author" content="Studio Lexair - Airien Yolexis Rojas Roque">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="KLYPER - Tu Compañero de Descargas Definitivo">
+    <meta property="og:description" content="Descargador universal de videos para Windows. Descarga de YouTube, Facebook, Instagram, TikTok y más.">
+    <meta property="og:image" content="https://studiolexair.com/klyper-og.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="KLYPER - Tu Compañero de Descargas Definitivo">
+    <meta property="twitter:description" content="Descargador universal de videos para Windows. Descarga de YouTube, Facebook, Instagram, TikTok y más.">
+    
+    <title>KLYPER - Descargador Universal de Videos para Windows | Studio Lexair</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #0f0f1e;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Custom Colors */
+        :root {
+            --primary-bg: #1a1a2e;
+            --secondary-bg: #16213e;
+            --accent-green: #4CAF50;
+            --accent-gold: #FFD700;
+            --dark-bg: #0f0f1e;
+        }
+        
+        /* Gradient Background */
+        .gradient-bg {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #1a1a2e 100%);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #4CAF50 0%, #FFD700 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* Glassmorphism */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        
+        /* Buttons */
+        .btn-primary {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(76, 175, 80, 0.6);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #1a1a2e;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+        }
+        
+        .btn-secondary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(255, 215, 0, 0.6);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            cursor: pointer;
+        }
+        
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+        
+        /* Cards */
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: #4CAF50;
+            box-shadow: 0 10px 40px rgba(76, 175, 80, 0.3);
+        }
+        
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+        
+        .navbar.scrolled {
+            background: rgba(26, 26, 46, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        /* Particles Background */
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.3;
+        }
+        
+        .particle {
+            position: absolute;
+            background: #4CAF50;
+            border-radius: 50%;
+            animation: particle-float 20s infinite;
+        }
+        
+        @keyframes particle-float {
+            0%, 100% {
+                transform: translate(0, 0);
+            }
+            25% {
+                transform: translate(100px, 100px);
+            }
+            50% {
+                transform: translate(200px, -100px);
+            }
+            75% {
+                transform: translate(-100px, 50px);
+            }
+        }
+        
+        /* Pricing Cards */
+        .pricing-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .pricing-card:hover {
+            transform: scale(1.05);
+            border-color: #4CAF50;
+            box-shadow: 0 15px 50px rgba(76, 175, 80, 0.4);
+        }
+        
+        .pricing-card.popular {
+            border: 2px solid #FFD700;
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.3);
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            color: #1a1a2e;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+        
+        /* FAQ Accordion */
+        .faq-item {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            border-color: #4CAF50;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 20px;
+        }
+        
+        .faq-answer.active {
+            max-height: 500px;
+            padding: 0 20px 20px 20px;
+        }
+        
+        /* Platform Icons */
+        .platform-icon {
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            font-size: 40px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .platform-icon:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+            border-color: #4CAF50;
+        }
+        
+        /* Mobile Menu */
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            right: 0;
+            background: rgba(26, 26, 46, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+        }
+        
+        .mobile-menu.active {
+            display: block;
+        }
+        
+        /* Comparison Table */
+        .comparison-table {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+        
+        /* Badge */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(76, 175, 80, 0.2);
+            border: 1px solid #4CAF50;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        /* Screenshot Gallery */
+        .screenshot-img {
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .screenshot-img:hover {
+            transform: scale(1.05);
+            border-color: #4CAF50;
+            box-shadow: 0 10px 40px rgba(76, 175, 80, 0.4);
+        }
+        
+        /* Testimonial Card */
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+        }
+        
+        .star-rating {
+            color: #FFD700;
+        }
+        
+        /* Steps */
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem !important;
+            }
+            
+            .pricing-card {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particles Background -->
+    <div id="particles"></div>
+    
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-yellow-500 rounded-lg flex items-center justify-center font-bold text-xl">
+                        K
+                    </div>
+                    <span class="text-2xl font-bold gradient-text">KLYPER</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center gap-8">
+                    <a href="#inicio" class="text-white hover:text-green-400 transition">Inicio</a>
+                    <a href="#caracteristicas" class="text-white hover:text-green-400 transition">Características</a>
+                    <a href="#precios" class="text-white hover:text-green-400 transition">Precios</a>
+                    <a href="#descargar" class="text-white hover:text-green-400 transition">Descargar</a>
+                    <a href="#contacto" class="text-white hover:text-green-400 transition">Contacto</a>
+                    <a href="#descargar" class="btn-primary">Descargar Gratis</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-white text-2xl" id="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="#inicio" class="block py-3 text-white hover:text-green-400 transition">Inicio</a>
+            <a href="#caracteristicas" class="block py-3 text-white hover:text-green-400 transition">Características</a>
+            <a href="#precios" class="block py-3 text-white hover:text-green-400 transition">Precios</a>
+            <a href="#descargar" class="block py-3 text-white hover:text-green-400 transition">Descargar</a>
+            <a href="#contacto" class="block py-3 text-white hover:text-green-400 transition">Contacto</a>
+            <a href="#descargar" class="btn-primary mt-4 block text-center">Descargar Gratis</a>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="inicio" class="min-h-screen flex items-center justify-center gradient-bg pt-20">
+        <div class="container mx-auto px-4 py-20">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Left Content -->
+                <div class="fade-in-up">
+                    <div class="flex gap-3 mb-6 flex-wrap">
+                        <span class="badge">
+                            <i class="fas fa-check-circle"></i>
+                            100% Gratis
+                        </span>
+                        <span class="badge">
+                            <i class="fas fa-shield-alt"></i>
+                            Sin Virus
+                        </span>
+                        <span class="badge">
+                            <i class="fas fa-download"></i>
+                            +50,000 Descargas
+                        </span>
+                    </div>
+                    
+                    <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 hero-title">
+                        Descarga Videos de <span class="gradient-text">Cualquier Plataforma</span>
+                    </h1>
+                    
+                    <p class="text-xl md:text-2xl text-gray-300 mb-4 font-semibold">
+                        Tu compañero de descargas definitivo
+                    </p>
+                    
+                    <p class="text-lg text-gray-400 mb-8">
+                        Klyper es el descargador universal de videos más potente para Windows. Descarga de YouTube, Facebook, Instagram, TikTok y más de 1000+ sitios web.
+                    </p>
+                    
+                    <div class="flex gap-4 flex-wrap">
+                        <a href="#descargar" class="btn-primary">
+                            <i class="fas fa-download mr-2"></i>
+                            Descargar Gratis
+                        </a>
+                        <a href="#precios" class="btn-secondary">
+                            <i class="fas fa-crown mr-2"></i>
+                            Ver Premium
+                        </a>
+                    </div>
+                    
+                    <div class="mt-8 flex items-center gap-6 flex-wrap">
+                        <div>
+                            <div class="text-3xl font-bold text-green-400">1000+</div>
+                            <div class="text-gray-400 text-sm">Sitios Soportados</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-yellow-400">8K</div>
+                            <div class="text-gray-400 text-sm">Calidad Máxima</div>
+                        </div>
+                        <div>
+                            <div class="text-3xl font-bold text-blue-400">v1.0.0</div>
+                            <div class="text-gray-400 text-sm">Versión Actual</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Right Content - Mockup -->
+                <div class="float-animation">
+                    <div class="glass rounded-3xl p-8 shadow-2xl">
+                        <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-6">
+                            <div class="flex items-center gap-2 mb-4">
+                                <div class="w-3 h-3 bg-red-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                            </div>
+                            <div class="bg-gray-700 rounded-lg p-4 mb-4">
+                                <div class="flex items-center gap-3">
+                                    <i class="fas fa-link text-green-400 text-xl"></i>
+                                    <input type="text" value="https://www.youtube.com/watch?v=..." class="bg-transparent border-none outline-none text-white w-full" readonly>
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-2 gap-3 mb-4">
+                                <div class="bg-gray-700 rounded-lg p-3 text-center">
+                                    <i class="fas fa-video text-blue-400 mb-2"></i>
+                                    <div class="text-xs text-gray-400">MP4 - 4K</div>
+                                </div>
+                                <div class="bg-gray-700 rounded-lg p-3 text-center">
+                                    <i class="fas fa-music text-purple-400 mb-2"></i>
+                                    <div class="text-xs text-gray-400">MP3 - 320kbps</div>
+                                </div>
+                            </div>
+                            <button class="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-3 rounded-lg font-semibold">
+                                <i class="fas fa-download mr-2"></i>
+                                Descargar Ahora
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Platforms Supported -->
+    <section class="py-20 bg-gradient-to-b from-transparent to-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    <span class="gradient-text">Plataformas Soportadas</span>
+                </h2>
+                <p class="text-gray-400 text-lg">Descarga desde tus sitios favoritos</p>
+            </div>
+            
+            <div class="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-10 gap-4 mb-8">
+                <div class="platform-icon">
+                    <i class="fab fa-youtube text-red-500"></i>
+                </div>
+                <div class="platform-icon">
+                    <i class="fab fa-facebook text-blue-500"></i>
+                </div>
+                <div class="platform-icon">
+                    <i class="fab fa-instagram text-pink-500"></i>
+                </div>
+                <div class="platform-icon">
+                    <i class="fab fa-tiktok text-white"></i>
+                </div>
+                <div class="platform-icon">
+                    <i class="fab fa-twitter text-blue-400"></i>
+                </div>
+                <div class="platform-icon">
+                    <i class="fab fa-vimeo text-blue-300"></i>
+                </div>
+                <div class="platform-icon">
+                    <i class="fab fa-reddit text-orange-500"></i>
+                </div>
+                <div class="platform-icon">
+                    <i class="fab fa-twitch text-purple-500"></i>
+                </div>
+                <div class="platform-icon">
+                    <i class="fab fa-dailymotion text-blue-600"></i>
+                </div>
+                <div class="platform-icon">
+                    <i class="fas fa-ellipsis-h text-gray-400"></i>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <p class="text-xl text-gray-300 font-semibold">
+                    <i class="fas fa-check-circle text-green-400 mr-2"></i>
+                    Y más de <span class="text-green-400 font-bold">1000+ sitios web</span>
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Features Section -->
+    <section id="caracteristicas" class="py-20 gradient-bg">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Características <span class="gradient-text">Principales</span>
+                </h2>
+                <p class="text-gray-400 text-lg">Todo lo que necesitas en un solo lugar</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Feature 1 -->
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-globe text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Múltiples Plataformas</h3>
+                    <p class="text-gray-400">Descarga de YouTube, Facebook, Instagram, TikTok y 1000+ sitios más.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-hd text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Alta Calidad</h3>
+                    <p class="text-gray-400">Descarga videos en calidad 4K, 8K y audio en alta definición.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-purple-500 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-exchange-alt text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Conversión de Formatos</h3>
+                    <p class="text-gray-400">Convierte videos a MP4, AVI, MKV y audio a MP3, AAC, WAV.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-bolt text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Descargas Rápidas</h3>
+                    <p class="text-gray-400">Tecnología de descarga acelerada para máxima velocidad.</p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-list text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Descargas por Lotes</h3>
+                    <p class="text-gray-400">Descarga playlists completas y múltiples videos simultáneamente.</p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-pink-500 to-pink-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-desktop text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Interfaz Intuitiva</h3>
+                    <p class="text-gray-400">Diseño moderno y fácil de usar, perfecto para todos.</p>
+                </div>
+                
+                <!-- Feature 7 -->
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-history text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Historial</h3>
+                    <p class="text-gray-400">Mantén un registro completo de todas tus descargas.</p>
+                </div>
+                
+                <!-- Feature 8 -->
+                <div class="feature-card text-center">
+                    <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-lock text-3xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">100% Seguro</h3>
+                    <p class="text-gray-400">Sin virus, sin malware, sin publicidad intrusiva.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- How it Works -->
+    <section class="py-20 bg-gradient-to-b from-gray-900 to-transparent">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    ¿Cómo <span class="gradient-text">Funciona?</span>
+                </h2>
+                <p class="text-gray-400 text-lg">Descarga videos en 4 simples pasos</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Step 1 -->
+                <div class="text-center">
+                    <div class="step-number">1</div>
+                    <div class="feature-card">
+                        <i class="fas fa-copy text-4xl text-green-400 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-3">Copia la URL</h3>
+                        <p class="text-gray-400">Copia el enlace del video que deseas descargar desde cualquier plataforma.</p>
+                    </div>
+                </div>
+                
+                <!-- Step 2 -->
+                <div class="text-center">
+                    <div class="step-number">2</div>
+                    <div class="feature-card">
+                        <i class="fas fa-paste text-4xl text-blue-400 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-3">Pégala en Klyper</h3>
+                        <p class="text-gray-400">Abre Klyper y pega la URL en el campo de descarga.</p>
+                    </div>
+                </div>
+                
+                <!-- Step 3 -->
+                <div class="text-center">
+                    <div class="step-number">3</div>
+                    <div class="feature-card">
+                        <i class="fas fa-sliders-h text-4xl text-purple-400 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-3">Selecciona Formato</h3>
+                        <p class="text-gray-400">Elige la calidad y formato de video o audio que prefieras.</p>
+                    </div>
+                </div>
+                
+                <!-- Step 4 -->
+                <div class="text-center">
+                    <div class="step-number">4</div>
+                    <div class="feature-card">
+                        <i class="fas fa-check-circle text-4xl text-yellow-400 mb-4"></i>
+                        <h3 class="text-xl font-bold mb-3">Descarga y Disfruta</h3>
+                        <p class="text-gray-400">¡Listo! Tu video se descargará automáticamente en segundos.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Comparison Free vs Premium -->
+    <section class="py-20 gradient-bg">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Gratis vs <span class="gradient-text">Premium</span>
+                </h2>
+                <p class="text-gray-400 text-lg">Elige el plan que mejor se adapte a ti</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="comparison-table">
+                    <div class="grid md:grid-cols-3 gap-px bg-gray-700">
+                        <!-- Header -->
+                        <div class="bg-gray-800 p-6">
+                            <h3 class="text-xl font-bold">Características</h3>
+                        </div>
+                        <div class="bg-gray-800 p-6 text-center">
+                            <h3 class="text-xl font-bold text-gray-400">Gratis</h3>
+                        </div>
+                        <div class="bg-gradient-to-r from-green-500 to-yellow-500 p-6 text-center">
+                            <h3 class="text-xl font-bold text-white">Premium</h3>
+                        </div>
+                        
+                        <!-- Descargas diarias -->
+                        <div class="bg-gray-800 p-4">Descargas diarias</div>
+                        <div class="bg-gray-800 p-4 text-center text-gray-400">10</div>
+                        <div class="bg-gray-800 p-4 text-center text-green-400 font-bold">Ilimitadas</div>
+                        
+                        <!-- Calidad -->
+                        <div class="bg-gray-800 p-4">Calidad máxima</div>
+                        <div class="bg-gray-800 p-4 text-center text-gray-400">720p</div>
+                        <div class="bg-gray-800 p-4 text-center text-green-400 font-bold">4K/8K</div>
+                        
+                        <!-- Descargas simultáneas -->
+                        <div class="bg-gray-800 p-4">Descargas simultáneas</div>
+                        <div class="bg-gray-800 p-4 text-center text-gray-400">1</div>
+                        <div class="bg-gray-800 p-4 text-center text-green-400 font-bold">5</div>
+                        
+                        <!-- Formatos -->
+                        <div class="bg-gray-800 p-4">Formatos</div>
+                        <div class="bg-gray-800 p-4 text-center text-gray-400">MP4, MP3</div>
+                        <div class="bg-gray-800 p-4 text-center text-green-400 font-bold">Todos</div>
+                        
+                        <!-- Playlists -->
+                        <div class="bg-gray-800 p-4">Descarga de playlists</div>
+                        <div class="bg-gray-800 p-4 text-center"><i class="fas fa-times text-red-400"></i></div>
+                        <div class="bg-gray-800 p-4 text-center"><i class="fas fa-check text-green-400"></i></div>
+                        
+                        <!-- Marca de agua -->
+                        <div class="bg-gray-800 p-4">Sin marca de agua</div>
+                        <div class="bg-gray-800 p-4 text-center"><i class="fas fa-times text-red-400"></i></div>
+                        <div class="bg-gray-800 p-4 text-center"><i class="fas fa-check text-green-400"></i></div>
+                        
+                        <!-- Soporte -->
+                        <div class="bg-gray-800 p-4">Soporte prioritario</div>
+                        <div class="bg-gray-800 p-4 text-center"><i class="fas fa-times text-red-400"></i></div>
+                        <div class="bg-gray-800 p-4 text-center"><i class="fas fa-check text-green-400"></i></div>
+                        
+                        <!-- Programador -->
+                        <div class="bg-gray-800 p-4">Programador de descargas</div>
+                        <div class="bg-gray-800 p-4 text-center"><i class="fas fa-times text-red-400"></i></div>
+                        <div class="bg-gray-800 p-4 text-center"><i class="fas fa-check text-green-400"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Pricing Section -->
+    <section id="precios" class="py-20 bg-gradient-to-b from-transparent to-gray-900">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Planes y <span class="gradient-text">Precios</span>
+                </h2>
+                <p class="text-gray-400 text-lg">Elige el plan perfecto para ti</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Mensual -->
+                <div class="pricing-card">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-calendar-day text-5xl text-blue-400 mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">Mensual</h3>
+                        <div class="text-5xl font-bold mb-2">
+                            <span class="text-green-400">$4.99</span>
+                        </div>
+                        <p class="text-gray-400">por mes</p>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>Descargas ilimitadas</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>Calidad hasta 4K/8K</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>5 descargas simultáneas</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>Todos los formatos</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>Sin marca de agua</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>Soporte prioritario</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full btn-outline">Comenzar</button>
+                </div>
+                
+                <!-- Anual - Popular -->
+                <div class="pricing-card popular">
+                    <div class="popular-badge">MÁS POPULAR</div>
+                    <div class="text-center mb-6">
+                        <i class="fas fa-calendar-alt text-5xl text-yellow-400 mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">Anual</h3>
+                        <div class="text-5xl font-bold mb-2">
+                            <span class="text-yellow-400">$39.99</span>
+                        </div>
+                        <p class="text-gray-400">por año</p>
+                        <p class="text-green-400 font-semibold mt-2">Ahorra 33%</p>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>Todo del plan mensual</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>Descarga de playlists</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>Programador de descargas</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>Actualizaciones gratis</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>Soporte prioritario 24/7</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>Acceso anticipado a nuevas funciones</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full btn-secondary">Comenzar</button>
+                </div>
+                
+                <!-- Lifetime -->
+                <div class="pricing-card">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-infinity text-5xl text-purple-400 mb-4"></i>
+                        <h3 class="text-2xl font-bold mb-2">Lifetime</h3>
+                        <div class="text-5xl font-bold mb-2">
+                            <span class="text-purple-400">$99.99</span>
+                        </div>
+                        <p class="text-gray-400">pago único</p>
+                        <p class="text-purple-400 font-semibold mt-2">Mejor valor</p>
+                    </div>
+                    
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>Todo del plan anual</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>Licencia de por vida</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>Actualizaciones ilimitadas</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>Soporte de por vida</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>Máxima prioridad</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>Sin cargos recurrentes</span>
+                        </li>
+                    </ul>
+                    
+                    <button class="w-full btn-primary">Comenzar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Screenshots -->
+    <section class="py-20 gradient-bg">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Capturas de <span class="gradient-text">Pantalla</span>
+                </h2>
+                <p class="text-gray-400 text-lg">Explora la interfaz de Klyper</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Screenshot 1 -->
+                <div class="glass rounded-2xl p-4">
+                    <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl h-64 flex items-center justify-center screenshot-img">
+                        <div class="text-center">
+                            <i class="fas fa-home text-6xl text-green-400 mb-4"></i>
+                            <p class="text-gray-400">Interfaz Principal</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Screenshot 2 -->
+                <div class="glass rounded-2xl p-4">
+                    <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl h-64 flex items-center justify-center screenshot-img">
+                        <div class="text-center">
+                            <i class="fas fa-download text-6xl text-blue-400 mb-4"></i>
+                            <p class="text-gray-400">Descarga en Progreso</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Screenshot 3 -->
+                <div class="glass rounded-2xl p-4">
+                    <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl h-64 flex items-center justify-center screenshot-img">
+                        <div class="text-center">
+                            <i class="fas fa-history text-6xl text-purple-400 mb-4"></i>
+                            <p class="text-gray-400">Historial de Descargas</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Screenshot 4 -->
+                <div class="glass rounded-2xl p-4">
+                    <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl h-64 flex items-center justify-center screenshot-img">
+                        <div class="text-center">
+                            <i class="fas fa-cog text-6xl text-yellow-400 mb-4"></i>
+                            <p class="text-gray-400">Configuración</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Screenshot 5 -->
+                <div class="glass rounded-2xl p-4">
+                    <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl h-64 flex items-center justify-center screenshot-img">
+                        <div class="text-center">
+                            <i class="fas fa-list text-6xl text-red-400 mb-4"></i>
+                            <p class="text-gray-400">Descargas por Lotes</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Screenshot 6 -->
+                <div class="glass rounded-2xl p-4">
+                    <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl h-64 flex items-center justify-center screenshot-img">
+                        <div class="text-center">
+                            <i class="fas fa-palette text-6xl text-pink-400 mb-4"></i>
+                            <p class="text-gray-400">Personalización</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials -->
+    <section class="py-20 bg-gradient-to-b from-gray-900 to-transparent">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Lo que dicen <span class="gradient-text">nuestros usuarios</span>
+                </h2>
+                <p class="text-gray-400 text-lg">Miles de usuarios satisfechos en todo el mundo</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="star-rating mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6">"Klyper es increíble! Descargo videos de YouTube y TikTok todos los días. La calidad es perfecta y es súper fácil de usar. ¡Totalmente recomendado!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center font-bold text-xl">
+                            M
+                        </div>
+                        <div>
+                            <div class="font-bold">María González</div>
+                            <div class="text-gray-400 text-sm">Creadora de Contenido</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="star-rating mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6">"La mejor inversión que he hecho. El plan Premium vale totalmente la pena. Puedo descargar playlists completas en minutos. Impresionante!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-yellow-500 rounded-full flex items-center justify-center font-bold text-xl">
+                            J
+                        </div>
+                        <div>
+                            <div class="font-bold">Juan Pérez</div>
+                            <div class="text-gray-400 text-sm">Desarrollador</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="star-rating mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="text-gray-300 mb-6">"Probé muchos descargadores, pero Klyper es el mejor. Interfaz moderna, rápido y soporta todos los sitios que uso. ¡5 estrellas sin duda!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-pink-500 to-red-500 rounded-full flex items-center justify-center font-bold text-xl">
+                            S
+                        </div>
+                        <div>
+                            <div class="font-bold">Sara Rodríguez</div>
+                            <div class="text-gray-400 text-sm">Diseñadora Gráfica</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- FAQ -->
+    <section class="py-20 gradient-bg">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                    Preguntas <span class="gradient-text">Frecuentes</span>
+                </h2>
+                <p class="text-gray-400 text-lg">Encuentra respuestas a las dudas más comunes</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- FAQ 1 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>¿Klyper es completamente gratis?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Sí, Klyper tiene una versión gratuita que te permite descargar hasta 10 videos diarios en calidad 720p. También ofrecemos planes Premium con características avanzadas y descargas ilimitadas.
+                    </div>
+                </div>
+                
+                <!-- FAQ 2 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>¿Qué plataformas están soportadas?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Klyper soporta más de 1000 sitios web incluyendo YouTube, Facebook, Instagram, TikTok, Twitter/X, Vimeo, Dailymotion, Reddit, Twitch y muchos más.
+                    </div>
+                </div>
+                
+                <!-- FAQ 3 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>¿Es seguro descargar videos con Klyper?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Absolutamente. Klyper es 100% seguro, sin virus ni malware. Todos nuestros archivos están verificados y firmados digitalmente.
+                    </div>
+                </div>
+                
+                <!-- FAQ 4 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>¿Puedo descargar videos en 4K?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Sí, con el plan Premium puedes descargar videos en calidad hasta 4K y 8K (si están disponibles en la fuente original).
+                    </div>
+                </div>
+                
+                <!-- FAQ 5 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>¿Funciona en Windows 11?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Sí, Klyper es totalmente compatible con Windows 10 y Windows 11. También funciona perfectamente en versiones anteriores desde Windows 7.
+                    </div>
+                </div>
+                
+                <!-- FAQ 6 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>¿Puedo convertir videos a MP3?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Sí, Klyper incluye un conversor integrado que te permite extraer audio de videos y guardarlo en MP3, AAC, WAV y otros formatos de audio.
+                    </div>
+                </div>
+                
+                <!-- FAQ 7 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>¿Cómo cancelo mi suscripción Premium?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Puedes cancelar tu suscripción en cualquier momento desde la configuración de tu cuenta. No hay penalizaciones ni cargos adicionales.
+                    </div>
+                </div>
+                
+                <!-- FAQ 8 -->
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>¿Ofrecen reembolsos?</span>
+                        <i class="fas fa-chevron-down transition-transform"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Sí, ofrecemos una garantía de reembolso de 30 días. Si no estás satisfecho con Klyper Premium, te devolvemos tu dinero sin hacer preguntas.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Download Section -->
+    <section id="descargar" class="py-20 bg-gradient-to-b from-gray-900 to-transparent">
+        <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="glass rounded-3xl p-8 md:p-12 text-center">
+                    <div class="mb-8">
+                        <i class="fas fa-download text-7xl text-green-400 mb-6"></i>
+                        <h2 class="text-4xl md:text-5xl font-bold mb-4">
+                            Descarga <span class="gradient-text">KLYPER</span>
+                        </h2>
+                        <p class="text-gray-400 text-lg mb-8">
+                            Comienza a descargar tus videos favoritos ahora mismo
+                        </p>
+                    </div>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-8 text-left">
+                        <div class="flex items-start gap-4">
+                            <i class="fas fa-windows text-3xl text-blue-400 mt-1"></i>
+                            <div>
+                                <div class="font-bold mb-1">Sistema Operativo</div>
+                                <div class="text-gray-400">Windows 10/11 (64-bit)</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <i class="fas fa-hdd text-3xl text-green-400 mt-1"></i>
+                            <div>
+                                <div class="font-bold mb-1">Tamaño del Archivo</div>
+                                <div class="text-gray-400">45.2 MB</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <i class="fas fa-tag text-3xl text-yellow-400 mt-1"></i>
+                            <div>
+                                <div class="font-bold mb-1">Versión Actual</div>
+                                <div class="text-gray-400">v1.0.0</div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start gap-4">
+                            <i class="fas fa-calendar text-3xl text-purple-400 mt-1"></i>
+                            <div>
+                                <div class="font-bold mb-1">Última Actualización</div>
+                                <div class="text-gray-400">Diciembre 2024</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <a href="#" class="btn-primary text-xl px-12 py-5 inline-block">
+                            <i class="fas fa-download mr-3"></i>
+                            Descargar Gratis Ahora
+                        </a>
+                        <p class="text-gray-500 text-sm">
+                            Compatible con Windows 10 y Windows 11 • Sin virus garantizado
+                        </p>
+                    </div>
+                    
+                    <div class="mt-8 pt-8 border-t border-gray-700">
+                        <h3 class="font-bold mb-4">Requisitos del Sistema</h3>
+                        <div class="grid md:grid-cols-3 gap-4 text-sm text-gray-400">
+                            <div>
+                                <i class="fas fa-microchip text-green-400 mr-2"></i>
+                                Procesador: Intel Core i3 o superior
+                            </div>
+                            <div>
+                                <i class="fas fa-memory text-blue-400 mr-2"></i>
+                                RAM: 4 GB mínimo
+                            </div>
+                            <div>
+                                <i class="fas fa-save text-yellow-400 mr-2"></i>
+                                Espacio: 100 MB disponibles
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact/Footer -->
+    <footer id="contacto" class="gradient-bg py-16">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <!-- Logo & Description -->
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-yellow-500 rounded-lg flex items-center justify-center font-bold text-xl">
+                            K
+                        </div>
+                        <span class="text-2xl font-bold gradient-text">KLYPER</span>
+                    </div>
+                    <p class="text-gray-400 mb-6 max-w-md">
+                        Tu compañero de descargas definitivo. Descarga videos de más de 1000 sitios web en la mejor calidad posible.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-500 transition">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-500 transition">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-500 transition">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-green-500 transition">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Enlaces Rápidos</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#inicio" class="text-gray-400 hover:text-green-400 transition">Inicio</a></li>
+                        <li><a href="#caracteristicas" class="text-gray-400 hover:text-green-400 transition">Características</a></li>
+                        <li><a href="#precios" class="text-gray-400 hover:text-green-400 transition">Precios</a></li>
+                        <li><a href="#descargar" class="text-gray-400 hover:text-green-400 transition">Descargar</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Legal -->
+                <div>
+                    <h3 class="font-bold text-lg mb-4">Legal</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-green-400 transition">Términos de Uso</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-green-400 transition">Política de Privacidad</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-green-400 transition">Soporte</a></li>
+                        <li><a href="mailto:contact@studiolexair.com" class="text-gray-400 hover:text-green-400 transition">Contacto</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="text-center space-y-2">
+                    <p class="text-gray-400">
+                        © 2024 <a href="https://studiolexair.com" class="text-green-400 hover:text-green-300 transition">Studio Lexair</a> - Desarrollado por Airien Yolexis Rojas Roque
+                    </p>
+                    <p class="text-gray-500">
+                        Hecho con <span class="text-red-500">❤️</span> por Studio Lexair
+                    </p>
+                    <p class="text-gray-500 text-sm">
+                        <a href="https://studiolexair.com" class="hover:text-green-400 transition">studiolexair.com</a> | 
+                        <a href="mailto:contact@studiolexair.com" class="hover:text-green-400 transition">contact@studiolexair.com</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scroll to Top Button -->
+    <button id="scroll-top" class="fixed bottom-8 right-8 w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center text-white shadow-lg opacity-0 pointer-events-none transition-opacity hover:shadow-xl hover:scale-110">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+            
+            // Scroll to top button
+            const scrollTopBtn = document.getElementById('scroll-top');
+            if (window.scrollY > 300) {
+                scrollTopBtn.style.opacity = '1';
+                scrollTopBtn.style.pointerEvents = 'auto';
+            } else {
+                scrollTopBtn.style.opacity = '0';
+                scrollTopBtn.style.pointerEvents = 'none';
+            }
+        });
+        
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+        
+        // FAQ toggle
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            
+            // Close all other FAQs
+            document.querySelectorAll('.faq-answer').forEach(item => {
+                if (item !== answer) {
+                    item.classList.remove('active');
+                    item.previousElementSibling.querySelector('i').style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            // Toggle current FAQ
+            answer.classList.toggle('active');
+            if (answer.classList.contains('active')) {
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+        
+        // Scroll to top
+        document.getElementById('scroll-top').addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.offsetTop - offset;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Create particles
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.width = Math.random() * 4 + 1 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.opacity = Math.random() * 0.5 + 0.1;
+                
+                if (Math.random() > 0.5) {
+                    particle.style.background = '#FFD700';
+                }
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        createParticles();
+        
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.querySelectorAll('.feature-card, .pricing-card, .testimonial-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
